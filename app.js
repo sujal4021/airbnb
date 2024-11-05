@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 //  console.log("sample  was saved")
 // }) 
 
+
 app.listen(port, (err,data) => {  
         console.log(`Server is listenings on ${port}`);
 });

@@ -19,6 +19,7 @@ main()
         console.log("connected to DB");
         return InitDB();
     })
+    
     .catch((err) => {
         console.log("Failed to connect to DB:", err);
     });

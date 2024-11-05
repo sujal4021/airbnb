@@ -130,4 +130,5 @@ const sampleListings = [
       country: "United Kingdom",
     }
   ];
+  
   module.exports = { data: sampleListings };
