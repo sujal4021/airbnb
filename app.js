@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 
 app.get("/listings", async (req, res) => {
     const allListing = await Listing.find({})
-    res.render("listings/index")
+    res.render("listings/index", {allListing})
 })
 
 app.listen(port, (err, data) => {
