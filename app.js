@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 // }) 
 
 app.listen(port, (err,data) => {  
-        console.log(`Server is listening on ${port}`);
+        console.log(`Server is listenings on ${port}`);
 });
 
 
