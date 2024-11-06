@@ -18,10 +18,7 @@ main().then(() => {
 
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"));
-app.get("/", (req, res) => {
-    res.status(200).send("hello airbnb");
-});
-
+app.use(express.urlencoded({ extended: true }))
 // app.get("/listing", async (req,res)=>{
 //     const newListing = new Listing({
 //         title:"fort",
@@ -35,10 +32,49 @@ app.get("/", (req, res) => {
 //  console.log("sample  was saved")
 // }) 
 
+
+
+
+// index route 
 app.get("/listings", async (req, res) => {
     const allListing = await Listing.find({})
-    res.render("listings/index", {allListing})
+    res.render("listings/index", { allListing })
 })
+
+
+// new route 
+
+app.get("/listings/new",(req,res)=>{
+res.render("listings/new")
+})
+
+
+
+
+// show route 
+app.get("/listings/:id", async (req, res) => {
+    let { id } = req.params
+    const listing = await Listing.findById(id)
+    res.render("listings/show", { listing })
+})
+
+
+
+
+app.post("/listings" , async(req,res)=>{
+    const newListings =  new Listing (req.body.listing);
+    await  newListings.save();
+    res.redirect("/listings")
+})
+
+
+
+
+
+
+
+
+
 
 app.listen(port, (err, data) => {
     console.log(`Server is listenings on ${port}`);
