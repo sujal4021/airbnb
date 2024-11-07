@@ -3,8 +3,9 @@ const app = express();
 const ejs = require("ejs")
 const path = require("path")
 const mongoose = require("mongoose");
+const ejsMate = require("ejs-mate");
 const port = 3000;
-const methodOverRide = require("method-override") 
+const methodOverRide = require("method-override")
 const Listing = require("./models/listing")
 const mongo_url = "mongodb://localhost:27017/airbnb";
 async function main() {
@@ -18,8 +19,11 @@ main().then(() => {
     })
 
 app.set("view engine", "ejs")
+app.engine('ejs', ejsMate)
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }))
+
+app.use(express.static(path.join(__dirname, "/public")))
 app.use(methodOverRide("_method"));
 // app.get("/listing", async (req,res)=>{
 //     const newListing = new Listing({
@@ -46,8 +50,8 @@ app.get("/listings", async (req, res) => {
 
 // new route 
 
-app.get("/listings/new",(req,res)=>{
-res.render("listings/new")
+app.get("/listings/new", (req, res) => {
+    res.render("listings/new")
 })
 
 
@@ -63,35 +67,35 @@ app.get("/listings/:id", async (req, res) => {
 
 
 
-app.post("/listings" , async(req,res)=>{
-    const newListings =  new Listing (req.body.listing);
-    await  newListings.save();
+app.post("/listings", async (req, res) => {
+    const newListings = new Listing(req.body.listing);
+    await newListings.save();
     res.redirect("/listings")
 })
 
 // edit route 
-app.get("/listings/:id/edit", async (req,res)=>{
+app.get("/listings/:id/edit", async (req, res) => {
     let { id } = req.params
     const listing = await Listing.findById(id)
-    res.render("listings/edit" ,{listing})
+    res.render("listings/edit", { listing })
 })
 
 
 
 // update route 
 
-app.put("/listings/:id", async(req,res)=>{
+app.put("/listings/:id", async (req, res) => {
     let { id } = req.params
-    await Listing.findByIdAndUpdate(id,{...req.body.listing})
+    await Listing.findByIdAndUpdate(id, { ...req.body.listing })
     res.redirect(`/listings/${id}`)
 })
 
 
 
-app.delete("/listings/:id", async(req,res)=>{
+app.delete("/listings/:id", async (req, res) => {
     let { id } = req.params
-   let deletedList = await Listing.findByIdAndDelete(id)
-   console.log(deletedList)
+    let deletedList = await Listing.findByIdAndDelete(id)
+    console.log(deletedList)
     res.redirect("/listings")
 })
 
