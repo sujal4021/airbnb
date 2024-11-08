@@ -1,4 +1,7 @@
+body{
+    font-family: "Plus Jakarta Sans", serif !important;
 
+}
 .navbar{
     height: 5rem;
  background-color: white;
@@ -12,7 +15,6 @@
 .nav-link{
     color: #222222;
 }
-
 
 .f-info-links a{
 text-decoration: none;
@@ -49,14 +51,33 @@ font-size: 1.3rem ;
 align-items: center;
 }
 
-
-
-
-
 .airbnb{
     display: flex;
     width: 100%;
     font-size: 1.2rem !important;
     justify-content: center;
     align-items: center;
+}
+
+.card{
+    border: none;
+    margin-bottom: 10px;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+    width: 100% !important;
+}
+
+.card-body{
+    padding: 0px !important;
+}
+
+.card-text{
+font-weight: 500 !important;
+}
+
+.card-title{
+    font-weight: bold;
 }
