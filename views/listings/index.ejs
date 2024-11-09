@@ -1,30 +1,30 @@
 <% layout("/layouts/boilerplate.ejs") -%>
 
-    <body>
-        <h1>All Listings</h1>
-        <!-- <form action="/listings/new" method="GET">
+<body>
+    <h1 style="padding: 1rem 0px;">All Listings</h1>
+    <!-- <form action="/listings/new" method="GET">
         <button>Create new Listing</button>
     </form> -->
 
-
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-            <% for(let listing of allListing){ %>
-        <div class="card col" style="width: 20rem;">
-                    <img src="<%= listing.image %>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%=listing.title %>
-                        </h5>
-                        <p class="card-text">
-                            <!-- <%=listing.description %>
-                                <br> -->
-                                &#8377 <%= listing.price.toLocaleString("en-IN")%>/night
-
-                        </p>
-                    </div>
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+        <% for (let listing of allListing) { %>
+            <a class="listing-link" href="/listings/<%= listing._id %>">
+            <div class="card ">
+                <img src="<%= listing.image %>" class="card-img-top" style="height: 17rem;" alt="Image of <%= listing.title %>">
+                <div class="card-img-overlay">
+                    <h5 class="card-title "><%= listing.title %></h5>
+                  </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= listing.title %>
+                    </h5>
+                    <p class="card-text">
+                        ₹ <%= listing.price.toLocaleString("en-IN") %>/night
+                    </p>
                 </div>
-
-                <% } %>
-        </div>
-
-    </body>
+                
+            </div>
+        </a>
+        <% } %>
+    </div>
+</body>

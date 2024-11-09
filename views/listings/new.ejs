@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<% layout("/layouts/boilerplate.ejs") -%>
+
 <body>
-    <h3>Create a new listing</h3>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h3  class="p-2 mt-2">Create a new listing</h3>
    <form action="/listings" method="post">
-    <input type="text"  name="listing[title]" placeholder="enter title">
-    <br><br>
-    <textarea   name="listing[description]" placeholder="enter description"></textarea>   <br>
-    <input type="text"  name="listing[image]" placeholder="enter image">
-    <br><br>
-    <input type="number"  name="listing[price]" placeholder="enter price">
-    <br><br>
-    <input type="text"  name="listing[location]" placeholder="enter location">
-    <br><br>
-    <input type="text"  name="listing[country]" placeholder="enter country">
-    <br><br>
-    <button>Add</button>
+    <div class="p-2">
+    <label for="title" class="form-label">Enter Title</label>
+    <input type="text"  name="listing[title]" placeholder="enter title"  class="form-control" required>
+</div>
+
+<div  class="p-2">
+    <label for="description" class="form-label">Enter description</label>
+    <textarea   name="listing[description]" class="form-control" placeholder="enter description required"></textarea>   
+</div>
+<div  class="p-2">
+    <label for="image" class="form-label">Enter image</label>
+    <input type="text"  name="listing[image]" placeholder="enter image" class="form-control" required>
+</div>
+<div  class="p-2">
+    <label for="price" class="form-label">Enter price</label>
+    <input type="number"  name="listing[price]" placeholder="enter price" class="form-control" required>
+</div>
+<div  class="p-2">
+    <label for="location" class="form-label">Enter location</label>
+    <input type="text"  name="listing[location]" placeholder="enter location" class="form-control " required>
+</div>
+<div  class="p-2">
+    <label for="country" class="form-label">Enter country</label>
+    <input type="text"  name="listing[country]" placeholder="enter country" class="form-control" required>
+    </div>  
+    <div  class="p-2 mb-3"> 
+    <button class="btn btn-success" >Add</button>
+    </div>      
    </form> 
+</div>
+</div>
 </body>
-</html>

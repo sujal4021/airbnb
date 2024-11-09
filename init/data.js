@@ -119,16 +119,7 @@ const sampleListings = [
       location: "Fiji",
       country: "Fiji",
     },
-    {
-      title: "Charming Cottage in the Cotswolds",
-      description:
-        "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
-      image: 
-        "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVkJTIwYW5kJTIwYnJlYWtmYXN0JTIwaW4lMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-      price: 1100,
-      location: "Cotswolds",
-      country: "United Kingdom",
-    }
+  
   ];
   
   module.exports = { data: sampleListings };
