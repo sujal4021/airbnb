@@ -1,5 +1,13 @@
 body{
     font-family: "Plus Jakarta Sans", serif !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    flex: 1
+    ;
+
 
 }
 .navbar{
@@ -92,4 +100,15 @@ font-weight: 500 !important;
     opacity: 0.2;
     background-color: white;
 
+}
+
+
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
