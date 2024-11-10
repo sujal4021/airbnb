@@ -3,37 +3,61 @@
 <body>
     <div class="row">
         <div class="col-8 offset-2">
-    <h3  class="p-2 mt-2">Create a new listing</h3>
-   <form action="/listings" method="post">
-    <div class="p-2">
-    <label for="title" class="form-label">Enter Title</label>
-    <input type="text"  name="listing[title]" placeholder="enter title"  class="form-control" required>
-</div>
+            <h3 class="p-2 mt-4">Create a new listing</h3>
+            <form action="/listings" method="post" novalidate class="needs-validation">
+                <div class="p-2">
+                    <label for="title" class="form-label">Enter Title</label>
+                    <input type="text" name="listing[title]" placeholder="Enter title" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a title.
+                    </div>
+                </div>
 
-<div  class="p-2">
-    <label for="description" class="form-label">Enter description</label>
-    <textarea   name="listing[description]" class="form-control" required placeholder="enter description "></textarea>   
-</div>
-<div  class="p-2">
-    <label for="image" class="form-label">Enter image</label>
-    <input type="text"  name="listing[image]" placeholder="enter image" class="form-control" required>
-</div>
-<div  class="p-2">
-    <label for="price" class="form-label">Enter price</label>
-    <input type="number"  name="listing[price]" placeholder="enter price" class="form-control" required>
-</div>
-<div  class="p-2">
-    <label for="location" class="form-label">Enter location</label>
-    <input type="text"  name="listing[location]" placeholder="enter location" class="form-control " required>
-</div>
-<div  class="p-2">
-    <label for="country" class="form-label">Enter country</label>
-    <input type="text"  name="listing[country]" placeholder="enter country" class="form-control" required>
-    </div>  
-    <div  class="p-2 mb-3"> 
-    <button class="btn btn-danger" >Create</button>
-    </div>      
-   </form> 
-</div>
-</div>
+                <div class="p-2">
+                    <label for="description" class="form-label">Enter description</label>
+                    <textarea name="listing[description]" class="form-control" required placeholder="Enter description"></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a description.
+                    </div>
+                </div>
+
+                <div class="p-2">
+                    <label for="image" class="form-label">Enter image URL</label>
+                    <input type="text" name="listing[image]" placeholder="Enter image URL" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter an image URL.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 p-3">
+                        <label for="location" class="form-label">Enter location</label>
+                        <input type="text" name="listing[location]" placeholder="Enter location" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid location.
+                        </div>
+                    </div>
+                    <div class="col-6 p-3">
+                        <label for="country" class="form-label">Enter country</label>
+                        <input type="text" name="listing[country]" placeholder="Enter country" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a country.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-2">
+                    <label for="price" class="form-label">Enter price</label>
+                    <input type="number" name="listing[price]" placeholder="Enter price" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid price.
+                    </div>
+                </div>
+
+                <div class="p-2 mb-3">
+                    <button class="btn btn-danger">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
