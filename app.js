@@ -5,6 +5,7 @@ const path = require("path")
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const port = 3000;
+const { ListingSchema} = require("./schema.js")
 const methodOverRide = require("method-override")
 const Listing = require("./models/listing")
 const mongo_url = "mongodb://localhost:27017/airbnb";
@@ -66,12 +67,15 @@ app.get("/listings/:id", async (req, res) => {
 
 
 
-
-app.post("/listings", async (req, res) => {
+// create route
+app.post("/listings", async (req, res ,next) => {
+    ListingSchema.validate(req.body);    
     const newListings = new Listing(req.body.listing);
     await newListings.save();
     res.redirect("/listings")
 })
+
+
 
 // edit route 
 app.get("/listings/:id/edit", async (req, res) => {
