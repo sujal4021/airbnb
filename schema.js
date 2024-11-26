@@ -7,5 +7,5 @@ module.exports.ListingSchema = Joi.object({
         location:Joi.string().required(),
         country:Joi.string().required(),
         image:Joi.string().allow("",null),
-    })
+    }) 
 })
